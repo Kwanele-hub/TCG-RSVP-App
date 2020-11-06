@@ -1,24 +1,24 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const { route } = require("./route/customer")
 
 app.use(express.json())
 mongoose.connect(
-  "mongodb+srv://kwanele:<password>@cluster0.lt0xm.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "mongodb+srv://kwanele:sphe1906@cluster0.lt0xm.mongodb.net/Rsvp?retryWrites=true&w=majority",
     {
-userNewUrlParser: true,
-useUnifiedTopology: true,
-useNewUrlParser: true
+        useUnifiedTopology: true,
+        useNewUrlParser: true
     },
 
-    () =>{
+    () => {
         console.log("mongobd database connected!")
     }
 );
 
-const customerRouter = require('./route/customer')
-app.use("/customer", customerRouter)
-
+// const customerRouter = require('./route/customer')
+// app.use("/customer", customerRouter)
+route(app)
 
 const port = 5100
-app.listen(port, ()=> console.log(`server running on port: ${port}`))
+app.listen(port, () => console.log(`server running on port: ${port}`))
