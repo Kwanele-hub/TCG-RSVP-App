@@ -1,11 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import NameForm from './component/form';
 
+import './App.css';
+import Events from './component/Events'
 function App() {
   return (
     <div className="App">
-      <NameForm/>
+      <Events/>
       
     </div>
   );
