@@ -1,12 +1,23 @@
 import React from 'react'
+import axios from 'axios'
+
 
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', surname: '', email: '', dietary: ''};
+    this.state = { name: '', surname: '', email: '', dietary: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  register = async() => {
+
+try {
+  const fetch = await axios.post('http://localhost:5100/book',this.state)
+  console.log('fetch',fetch.data)
+} catch (error) {
+  console.log(error)
+}
   }
 
   handleChange = ({ target }) => {
@@ -17,9 +28,11 @@ class NameForm extends React.Component {
     event.preventDefault();
     console.log(this.state)
     this.setState({ name: '', surname: '', email: '', dietary: '' })
+    this.register (this.state)
   }
 
   render() {
+    console.log(this.state)
     return (
       <form onSubmit={this.handleSubmit}>
         <label>Name:
