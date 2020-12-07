@@ -1,0 +1,7 @@
+.events__displayer {
+    display: flex;
+    margin-top: 3%;
+    flex-direction: row;
+    padding: 2%;
+    margin-left: 4%;
+}
